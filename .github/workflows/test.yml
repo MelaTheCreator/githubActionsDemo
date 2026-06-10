@@ -1,0 +1,36 @@
+#Name des Workflows --> dieser erscheint in der GitHub Actions Übersicht
+name: Run Jest Tests
+
+on:
+  # Trigger: Bei jedem Push auf den main Branch
+  push:
+    branches: [main]
+  # Trigger: Bei jedem Pull Request auf den main Branch
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Job-Name --> erscheint in der Übersicht der Jobs
+  test:
+    # Runner-Umgebung --> hier wird die Node.js Umgebung bereitgestellt
+    runs-on: ubuntu-latest
+
+    # Schritte, die in diesem Job ausgeführt werden sollen
+    steps:
+      # Schritt 1: Code aus dem Repository auschecken
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Schritt 2: Node.js installieren
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      # Schritt 3: Abhängigkeiten installieren
+      - name: Install dependencies
+        run: npm ci
+
+      # Schritt 4: Jest Tests ausführen
+      - name: Run Jest Tests
+        run: npm test
