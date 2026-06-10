@@ -7,15 +7,11 @@
   },
   "private": true,
   "devDependencies": {
-    "@types/bun": "latest",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1"
   },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
   "jest": {
-    "testEnvironment": "jsdom",
+    "testEnvironment": "jest-environment-jsdom",
     "transform": {}
   }
 }
