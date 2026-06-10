@@ -24,8 +24,7 @@ jobs:
       # Schritt 2: Node.js installieren
       - name: Set up Node.js
         uses: actions/setup-node@v4
-        with:
-          node-version: "24"
+        with: node-version: 24
 
       # Schritt 3: Abhängigkeiten installieren
       - name: Install dependencies
